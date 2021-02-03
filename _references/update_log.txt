@@ -1,0 +1,21 @@
+v0.4
++ include everything ready for first commit to github.
++ training GPTNet, evaluation by cascading weight randomization, AOPC.
++ component-wise heatmaps generation.
+
+v0.3
++ mnist_gen replaced completely with gpt_mnist. 
+
+v0.2 
++ first iteration of mnist_gen is included
+
+v0.1.2
++ changes in descriptions.
++ added revised compenv.
+
+v0.1.1
++ reorganized into APL_to_python folder and a single simple_algo_section4.2.2.py file.
++ more comments are added.
+
+v0.1
++ First translation of APL codes to python

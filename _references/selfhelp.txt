@@ -1,0 +1,45 @@
+D:
+cd Desktop@D/gpt/src/mnist_gen
+python main.py --h
+
+gpt_mnist
+1 epoch 640 iter takes 97.1s. Batch size=16 so there are 10240 data used.
+
+We can afford 128000 iters. to be completed in 6 hours. So 10 epochs of 12800.
+
+
+Sequence of commands post training:
+1.
+For loss finetune.JPG and loss training.JPG
+python -W ignore main_gpt_mnist.py --mode view_losses --PROJECT_ID NSCC_DONE --iter0_n_loss 87 --average_n_loss 100
+
+2.
+For fig:intro
+Make a copy of model.net from model.net.best in project directory.
+python -W ignore main_gpt_mnist.py --PROJECT_ID NSCC_DONE --mode generate_samples --random_batch 0
+
+python -W ignore main_gpt_mnist.py --mode gen_dist
+
+3.
+for fig:heatmaps
+python -W ignore main_gpt_mnist.py --PROJECT_ID NSCC_DONE --mode heatmaps
+
+4.
+python -W ignore main_gpt_mnist_eval.py --PROJECT_ID NSCC_DONE --mode basic --N_EVAL_SAMPLE 2400
+Get basic info
+
+5.
+python -W ignore main_gpt_mnist_eval.py --PROJECT_ID NSCC_DONE --mode sanity_weight_randomization --N_EPOCH 50 --N_EVAL_SAMPLE 24
+N_EPOCH 1 of 24 samples takes about 6 mins locally so 50 epochs takes about 4.5 hours.
+
+python -W ignore main_gpt_mnist_eval.py --PROJECT_ID NSCC_DONE --mode view_weight_randomization
+
+6.
+python -W ignore main_gpt_mnist_eval.py --PROJECT_ID NSCC_DONE --mode compute_AOPC --N_EVAL_SAMPLE 1200
+24 samples take 320s seconds so 50*24=1200 about 4.4 hours.
+
+python -W ignore main_gpt_mnist_eval.py --PROJECT_ID NSCC_DONE --mode view_AOPC 
+
+7.
+for generative
+python -W ignore main_gpt_mnist.py --mode apply_mnist --PROJECT_ID NSCC_DONE

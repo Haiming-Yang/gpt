@@ -1,0 +1,12 @@
+#!/bin/sh
+#PBS -l select=1:ncpus=5:ngpus=1:mem=16gb
+#PBS -l walltime=08:00:00
+#PBS -q dgx
+#PBS -j oe
+#PBS -P 12001577
+
+cd $PBS_O_WORKDIR
+module load cuda/10.1
+module load singularity
+singularity exec --nv --bind gpt/:/mnt MainSB/ python /mnt/main_gpt_mnist.py --PROJECT_ID NSCC_0001 --N_EPOCH 10 --N_PER_EPOCH 12800 --n_eval_epoch 48 --ROOT_DIR_MODE rel --ROOT_DIR gpt
+
