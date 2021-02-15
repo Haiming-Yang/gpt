@@ -1,5 +1,5 @@
 ## gpt_mnist
-Here are the instructions to run the codes to obtain results in _Convolutional Neural Network Interpretability with General Pattern Theory_ [link to be updated]. We show here the quick start version from scratch. 
+Here are the instructions to run the codes to obtain results in [_Convolutional Neural Network Interpretability with General Pattern Theory_](https://arxiv.org/abs/2102.04247). We show here the quick start version from scratch. 
 
 **Assume we run everything from the root folder, gpt.**
 

@@ -15,6 +15,6 @@ python simple_algo_section4.2.2.py --example_n 1
 
 
 **2. src/gpt_mnist**<br>
-The folder contains source codes related to the paper titled _Convolutional Neural Network Interpretability with General Pattern Theory_ [in review, update later]. 
+The folder contains source codes related to the paper titled [_Convolutional Neural Network Interpretability with General Pattern Theory_](https://arxiv.org/abs/2102.04247). 
 
 <img src="_treasure_trove/imgs/rep_img.png" width="360" alt="representative image">
