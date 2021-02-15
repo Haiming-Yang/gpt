@@ -11,21 +11,19 @@ if __name__=='__main__':
 
     example_n = args['example_n']
     verbose = args['verbose']
-    AVAILABLE_EXAMPLES = [1,2,3,4,5,6,7,8,9]
-    SECTION_LABELS = [None,1,2,2,3,3,4,5,6,7]
-    PAGES = [None, 205,207,209,210,211,213,214,215,217]
-    T_MAX_LIST = [None,4,6,7,16,4,8,4,9,6]
+    AVAILABLE_EXAMPLES = [1,2,3,4,5,6,7,8,9,10]
+    SECTION_LABELS = [None,1,2,2,3,3,4,5,6,7,8]
+    PAGES = [None, 205,207,209,210,211,213,214,215,217,219]
+    T_MAX_LIST = [None,4,6,7,16,4,8,4,9,6,4]
+
     try:
-        assert(example_n in AVAILABLE_EXAMPLES)
+        print('Example from Ulf Grenander\' textbook section 4.2.2.%s page %s'%(
+            str(SECTION_LABELS[example_n]),str(PAGES[example_n])))
         print('example_n : %s'%(str(example_n)))
     except:
         print('EXAMPLE NOT FOUND.')
         print('The available example numbers for --example_n are %s'%(str(AVAILABLE_EXAMPLES)))
         exit()
-    print('Example from Ulf Grenander\' textbook section 4.2.2.%s page %s'%(
-        str(SECTION_LABELS[example_n]),str(PAGES[example_n])))
-
-
 
     print("==== SETTOPOLOGY ====")
     Nj = 4 # no. of neighbors
@@ -71,6 +69,9 @@ if __name__=='__main__':
         G0 = np.array([[0,0,0,0],[3,3,3,3],[3,0,4,0],[4,0,5,0],[0,3,0,0]])
     elif example_n in [9]:
         G0 = np.array([[0,0,0,0],[3,0,3,0],[4,0,4,0],[3,5,3,5],[5,0,5,0]])
+    elif example_n in [10]:
+        G0 = np.array([[0,0,0,0],[3,3,3,3],[0,0,3,3],[0,0,0,0]])
+
     nG0 = G0.shape[0]-1 # no of generators, excluding emtpy generator
     alpha = range(nG0+1) 
     print('G0:\n',G0,'\n')
@@ -98,7 +99,10 @@ if __name__=='__main__':
     T_MAX = T_MAX_LIST[example_n] 
 
     P = 1
-    develop(T_MAX, 
-        Nj, nBSG, L, J, GE, CE, age,
-        P, verbose=verbose)
+    if example_n in range(10):
+        develop(T_MAX, Nj, nBSG, L, J, GE, CE, age, P, verbose=verbose)
+    elif example_n in [10]:
+        age1 = 1
+        develop(T_MAX, Nj, nBSG, L, J, GE, CE, age, P, verbose=verbose, 
+            growth_mode='growth2', age1=age1)
 

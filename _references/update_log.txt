@@ -1,3 +1,10 @@
+v0.5
+In progress
+
+v0.4.2
++ include more examples from section 4.2.3.1 of textbook.
++ update Getting Started.docx.
+
 v0.4
 + include everything ready for first commit to github.
 + training GPTNet, evaluation by cascading weight randomization, AOPC.
