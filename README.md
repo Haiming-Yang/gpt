@@ -15,9 +15,9 @@ python simple_algo_section4.2.2.py --example_n 1
 
 
 **2. src/gpt_mnist**<br>
-The folder contains source codes related to the paper titled _Convolutional Neural Network Interpretability with General Pattern Theory_ [in review, update later]. 
+The folder contains source codes related to the paper titled [_Convolutional Neural Network Interpretability with General Pattern Theory_](https://arxiv.org/abs/2102.04247). 
 
 <img src="_treasure_trove/imgs/rep_img.png" width="360" alt="representative image">
 
-**3. src/gpt_benas<br>
-In progress. Early stage of development.
+**3. src/gpt_genmod**<br>
+The related report is titled _A Modified Convolutional Network for Auto-encoding based on Pattern Theory Growth Function_ <mark>(link to be updated)</mark>.

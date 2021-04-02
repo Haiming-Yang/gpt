@@ -65,7 +65,6 @@ def develop(T_MAX,
     Nj, nBSG, L, J, GE, CE, age,
     P, COMPENV_MODE=None ,verbose=0,ALPH=None, **kwargs):
 
-
     # in the textbook T_MAX is named MORE
     if ALPH is None:
         ALPH=' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -152,20 +151,21 @@ def growth3(CE, age, ENV, nBSG, Nj, J, L, split_mode=None, verbose=0):
         while True:
             if np.all(~(NEW[J1-1,:,:]>nBSG)):
                 break
+
+            # find a non-empty g in NEW[J1-1,:,:]
             M = list((NEW[J1-1,:,:]>nBSG).reshape(-1).astype(int)).index(1) + 1
+            
+            # compute x and y coords of g
             X = int(np.ceil(M/L))
             Y = int(M - L*(X-1))
-            # print(J1, M, X, Y)
-            # print(NEW.shape)
-
+            
+            # J2 is temp variable to store what g was in (X,Y). Put g=0 there instead.
             J2 = NEW[J1-1,X-1,Y-1]
             NEW[J1-1,X-1,Y-1] = 0
-            DIR = J[J1-1,:]
 
-            # print(DIR)
-            # print([X, Y]+ list(DIR))
-            # raise Exception('WAIT FOR IT!')
-            CE, NEW = move1(CE, [X, Y]+ list(DIR), L, nBSG, Nj, NEW)
+            DIR = J[J1-1,:]
+            CE, NEW = move1(CE, [X, Y]+ list(DIR), L, nBSG, Nj, NEW)            
+
             CE[X+DIR[0]-1, Y+DIR[1]-1] = J2            
         # print(CE)
     # raise Exception('gg')
@@ -176,18 +176,22 @@ def growth3(CE, age, ENV, nBSG, Nj, J, L, split_mode=None, verbose=0):
 def move1(A, PAR, L, nBSG, Nj, NEW):
     Z = PAR[0:2]
     DIR = PAR[2:4]
+
+
+    # Compute the set of points Z+DIR, Z+2DIR,..., store the coords in Lx2 matrix, SET
     SET = np.tensordot(np.array(range(1,1+L)),DIR,axes=0) \
         + np.tensordot(np.ones(shape=(L,)),Z,axes=0)
-    # print(SET)
+    
+    # test which points in SET are inside lattice. 
+    # keep only inside points
     ANS = test(SET, L)
-    # print(ANS)
     temp = [SET[x-1,:] for x in ANS]
     SET = np.array(temp).astype(int)
-    # print(SET)
     temp1 = index_col_and_row_by_list(A, [SET[:,0]-1,SET[:,1]-1])
     V = np.diag(temp1)
-    # print(V)
+
     NONEMPTY = V>nBSG
+
 
     def get_last(x):
         # assume x boolean 
@@ -198,9 +202,8 @@ def move1(A, PAR, L, nBSG, Nj, NEW):
             if not x1: return i
         return i+1
     LAST = get_last(NONEMPTY)
-    # print('LAST',LAST)
-
     B = A.copy()
+
     NEW1 = NEW.copy()
     i=1
     while True:
@@ -210,6 +213,7 @@ def move1(A, PAR, L, nBSG, Nj, NEW):
         i=i+1
         if (i<LAST): continue
         break
+
     NEW = NEW1
     return B, NEW
     

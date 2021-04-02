@@ -1,7 +1,7 @@
 import numpy as np
 
 """
-The vocabulary used here follows as much as possible chapter 4.2 of the texbtook
+The vocabulary used here follows as much as possible chapter 4.2 of the textbook
 "Ulf Grenander. General Pattern Theory: A Mathematical Study of Regular Structures. Oxford Mathematical Monographs. Clarendon Press, 1993. 
 ISBN 9780198536710. URL https://books.google.com.sg/books?id=Z-8YAQAAIAAJ"
 """
