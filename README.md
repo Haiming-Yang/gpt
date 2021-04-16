@@ -20,4 +20,4 @@ The folder contains source codes related to the paper titled [_Convolutional Neu
 <img src="_treasure_trove/imgs/rep_img.png" width="360" alt="representative image">
 
 **3. src/gpt_genmod**<br>
-The related report is titled _A Modified Convolutional Network for Auto-encoding based on Pattern Theory Growth Function_ <mark>(link to be updated)</mark>.
+The related report is titled [_A Modified Convolutional Network for Auto-encoding based on Pattern Theory Growth Function_ ](https://arxiv.org/abs/2104.02651).
