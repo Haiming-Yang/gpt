@@ -1,5 +1,5 @@
 ## gpt_genmod
-Here are the instructions to run the codes to obtain results shown in <mark> [link to be updated] </mark>. We show here the quick start version from scratch. 
+Here are the instructions to run the codes to obtain results shown in [_A Modified Convolutional Network for Auto-encoding based on Pattern Theory Growth Function_ ](https://arxiv.org/abs/2104.02651). We show here the quick start version from scratch. 
 
 **Assume we run everything from the root folder, gpt.**
 
